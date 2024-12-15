@@ -1,7 +1,7 @@
 ---
 // This is an example of a dynamic page in Server (SSR) mode which are not built ahead of time.
 
-// This has to be set to false because it is on the server side (see astro.config.mjs' defineConfig's output to confirm if it is set to static).
+// This has to be set to false because it is on the server side (see astro.config.mjs' defineConfig's adapter to ensure one exists, and output to confirm if it is set to static).
 export const prerender = false;
 
 const pages = [
