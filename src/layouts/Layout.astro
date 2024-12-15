@@ -1,7 +1,7 @@
 ---
 import Link from "../components/Link.astro";
 
-import "../styles/global.css"
+import "../styles/global.css";
 
 // Sets a default in case no title was passed as props.
 const { title = "Astro" } = Astro.props;
@@ -36,3 +36,15 @@ const { title = "Astro" } = Astro.props;
     height: 100%;
   }
 </style>
+
+<script>
+  import { logMessage } from "../lib/utils";
+
+  logMessage();
+
+  const paragraph = document.querySelector("p");
+
+  paragraph?.addEventListener("click", () => {
+    console.log("Clicked");
+  });
+</script>
