@@ -1,0 +1,40 @@
+---
+// This is an example of a dynamic page in Static (SSG) mode which are built ahead of time.
+export async function getStaticPaths() {
+  const pages = [
+    {
+      slug: undefined,
+      title: "A dynamic page in static mode",
+      text: "You can view me at http://localhost:4321/static",
+    },
+    {
+      slug: "nested",
+      title: "A nested dynamic page in static mode",
+      text: "You can view me at http://localhost:4321/static/nested",
+    },
+    {
+      slug: "nested/again",
+      title: "A more nested dynamic page in static mode",
+      text: "You can view me at http://localhost:4321/static/nested/again",
+    },
+  ];
+  return pages.map(({ slug, title, text }) => {
+    return {
+      params: { slug },
+      props: { title, text },
+    };
+  });
+}
+
+const { title, text } = Astro.props;
+---
+
+<html>
+  <head>
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{title}</h1>
+    <p>{text}</p>
+  </body>
+</html>
